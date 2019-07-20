@@ -1,15 +1,51 @@
 import React from 'react';
+import firebase from 'firebase/app';
+import 'firebase/auth';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import Auth from '../components/Auth/Auth';
+import Home from '../components/Home/Home';
+import MyNav from '../components/MyNav/MyNav';
+
 import './App.scss';
 
+import fbConnection from '../helpers/data/connection';
+
+fbConnection();
+
 class App extends React.Component {
+  state = {
+    authed: false,
+  };
+
+  componentDidMount() {
+    this.removeListener = firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.setState({ authed: true });
+      } else {
+        this.setState({ authed: false });
+      }
+    });
+  }
+
+  componentWillUnmount() {
+    this.removeListener();
+  }
+
   render() {
+    const { authed } = this.state;
+    const loadComponent = () => {
+      if (authed) {
+        return <Home />;
+      }
+      return <Auth />;
+    };
+
     return (
       <div className="App">
-        <h2>App</h2>
-        <button className="btn btn-danger">bootstrap button</button>
+        <MyNav authed={authed} />
+        {loadComponent()}
       </div>
     );
   }
