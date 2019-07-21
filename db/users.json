@@ -1,0 +1,8 @@
+{
+  "user1": {
+    "userName": "User name",
+    "uid": "1234",
+    "description": "This is an example user",
+    "imgUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d3/User_Circle.png"
+  }
+}

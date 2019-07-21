@@ -1,0 +1,42 @@
+{
+  "build1": {
+    "name" : "Example Build 1",
+    "imgUrl" : "https://images.pexels.com/photos/116490/pexels-photo-116490.jpeg",
+    "dateCreated" : "brown",
+    "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "isPublic": true,
+    "uid": "12345"
+  },
+  "build2": {
+    "name" : "Example Build 2",
+    "imgUrl" : "https://live.staticflickr.com/8493/8387166083_83febe3aca_b.jpg",
+    "dateCreated" : "yellow",
+    "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "isPublic": true,
+    "uid": "12345"
+  },
+  "build3": {
+    "name" : "Example Build 3",
+    "imgUrl" : "http://3.bp.blogspot.com/-44tMtoxhHCc/UIW4r159jEI/AAAAAAAAFEU/spTHHYH1Uvw/s1600/Lego-train.jpg",
+    "dateCreated" : "green",
+    "description" : "OMG WHY?",
+    "isPublic": false,
+    "uid": "12345"
+  },
+  "build4": {
+    "name" : "Example Build 4",
+    "imgUrl" : "https://upload.wikimedia.org/wikipedia/commons/5/5d/Lego_DNA.jpg",
+    "dateCreated" : "brown",
+    "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "isPublic": false,
+    "uid": "12345"
+  },
+  "build5": { 
+    "name" : "Eample Build 5",
+    "imgUrl" : "https://live.staticflickr.com/5226/5624774486_9c577580eb_b.jpg",
+    "dateCreated" : "green",
+    "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "isPublic": true,
+    "uid": "12345"
+  }
+}
