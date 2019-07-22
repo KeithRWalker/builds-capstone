@@ -11,7 +11,9 @@ const getBuilds = () => new Promise((resolve, reject) => {
       if (buildData !== null) {
         Object.keys(buildData).forEach((build) => {
           buildData[build].id = build;
-          builds.push(buildData[build]);
+          if (buildData[build].isPublic === true) {
+            builds.push(buildData[build]);
+          }
         });
       }
       resolve(builds);
