@@ -19,7 +19,6 @@ class Home extends React.Component {
 
   componentDidMount() {
     this.loadBuilds();
-    console.error(this);
   }
 
   render() {

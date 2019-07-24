@@ -21,10 +21,12 @@ class BuildCard extends React.Component {
       <div className="BuildCard col-6">
       <Col sm="4">
         <Card>
-        <CardHeader><CardTitle>{build.name}</CardTitle></CardHeader>
+        <CardHeader>
+          <CardTitle>{build.name}</CardTitle>
+          <CardSubtitle>{build.dateCreated}</CardSubtitle>
+        </CardHeader>
           <CardImg top width="100%" src={build.imgUrl} alt="Card image cap" />
           <CardBody>
-            <CardSubtitle>{build.dateCreated}</CardSubtitle>
             <CardText>{build.description}</CardText>
             <Button>Button</Button>
           </CardBody>

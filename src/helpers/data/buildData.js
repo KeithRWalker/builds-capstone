@@ -21,4 +21,6 @@ const getBuilds = () => new Promise((resolve, reject) => {
     .catch(err => reject(err, 'error in "getBuilds/buildData.js"'));
 });
 
-export default { getBuilds };
+const addBuild = userBuild => Axios.post(`${baseUrl}/builds.json`, userBuild);
+
+export default { getBuilds, addBuild };
