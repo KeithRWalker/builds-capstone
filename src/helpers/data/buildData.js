@@ -18,9 +18,27 @@ const getBuilds = () => new Promise((resolve, reject) => {
       }
       resolve(builds);
     })
-    .catch(err => reject(err, 'error in "getBuilds/buildData.js"'));
+    .catch(err => reject(err));
+});
+
+const getUserBuilds = uid => new Promise((resolve, reject) => {
+  Axios.get(`${baseUrl}/builds.json`)
+    .then((resp) => {
+      const buildData = resp.data;
+      const userBuilds = [];
+      if (buildData !== null) {
+        Object.keys(buildData).forEach((build) => {
+          if (buildData[build].uid === uid) {
+            buildData[build].id = `${build}_local`;
+            userBuilds.push(buildData[build]);
+          }
+        });
+      }
+      resolve(userBuilds);
+    })
+    .catch(err => reject(err));
 });
 
 const addBuild = userBuild => Axios.post(`${baseUrl}/builds.json`, userBuild);
 
-export default { getBuilds, addBuild };
+export default { getBuilds, addBuild, getUserBuilds };
