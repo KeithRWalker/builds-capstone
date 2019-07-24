@@ -1,16 +1,10 @@
 import React from 'react';
 import firebase from 'firebase/app';
+import moment from 'moment';
 import 'firebase/auth';
-import {
-  Col,
-  Button,
-  Form,
-  div,
-  Label,
-  input,
-} from 'reactstrap';
+import { Button } from 'reactstrap';
 
-import buildData from '../../helpers/data/connection';
+import buildData from '../../helpers/data/buildData';
 
 import './AddBuild.scss';
 
@@ -29,22 +23,25 @@ class AddBuild extends React.Component {
   };
 
   formFieldStringState = (name, e) => {
-    const tempBuild = { ...this.state.newScat };
+    const tempBuild = { ...this.state.addBuild };
     tempBuild[name] = e.target.value;
     this.setState({ addBuild: tempBuild });
   }
 
-  nameValue = e => this.formFieldStringState('sampleName', e);
+  formNameChange = e => this.formFieldStringState('name', e);
 
-  imgValue = e => this.formFieldStringState('sampleImgUrl', e);
+  formImgChange = e => this.formFieldStringState('imgUrl', e);
 
-  descriptionValue = e => this.formFieldStringState('sampleDescription', e);
+  formDescriptionChange = e => this.formFieldStringState('description', e);
 
   formSubmit = (e) => {
     e.preventDefault();
+    const currentTime = moment().format('MMMM Do YYYY');
     const userBuild = { ...this.state.addBuild };
     userBuild.uid = firebase.auth().currentUser.uid;
-    buildData.AddBuild(userBuild)
+    userBuild.dateCreated = currentTime;
+    console.error(userBuild);
+    buildData.addBuild(userBuild)
       .then(() => this.props.history.push('/home'))
       .catch(err => console.error('error at formSubmit in AddBuild.js', err));
   }
@@ -52,60 +49,52 @@ class AddBuild extends React.Component {
   render() {
     const { addBuild } = this.state;
     return (
-      <div className="AddBuild col-4">
+      <div className="AddBuild col-6">
         <h1>Add your own Build!</h1>
         <form onSubmit={this.formSubmit}>
-        <div className="row">
-          <Label for="formName" sm={2}>Name</Label>
-          <div>
+
+        <div className="row-8">
+          <label htmlFor="formName">Name:</label>
+          <div className="col">
             <input
               type="text"
               name="text"
               id="formName"
               placeholder="what's your creation's name?"
-              
+              value={addBuild.formName}
+              onChange={this.formNameChange}
             />
-          </div>
+            </div>
         </div>
 
-        <div className="row">
-          <Label for="formImg" sm={2}>Image</Label>
-          <div>
+        <div className="row-8">
+          <label htmlFor="formImg">Image:</label>
+          <div className="col">
             <input
               type="url"
               name="url"
               id="formImg"
               placeholder="insert a url to a photo of your build!"
+              value={addBuild.formImg}
+              onChange={this.formImgChange}
             />
-          </div>
+            </div>
         </div>
 
-        <div className="row">
-          <Label for="formDescription" sm={2}>Description</Label>
-          <div>
+        <div className="row-8">
+          <label htmlFor="formDescription">Description</label>
+          <div className="col">
             <input
               type="textarea"
               name="text"
               id="formDescription"
               placeholder="give us a short description of what you have created!"
+              value={addBuild.formDescription}
+              onChange={this.formDescriptionChange}
               />
-          </div>
+              </div>
         </div>
-
-        <div className="row">
-          <div>
-            <div check>
-              <Label check>
-                <input
-                type="checkbox"
-                id="checkbox2"
-                />{' Make Private'}
-              </Label>
-            </div>
-          </div>
-        </div>
-
-        <div check row>
+        <div>
           <div>
             <Button color="success" type="submit">Submit</Button>
           </div>
