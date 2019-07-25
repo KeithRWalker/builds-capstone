@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 
@@ -11,8 +12,14 @@ import {
 } from 'reactstrap';
 
 import './BuildCard.scss';
+import buildShape from '../../helpers/prop-types/buildShape';
 
 class BuildCard extends React.Component {
+  static propTypes = {
+    build: buildShape.buildCardShape,
+    deleteBuild: PropTypes.func.isRequired,
+  }
+
   constructor(props) {
     super(props);
     this.state = {
