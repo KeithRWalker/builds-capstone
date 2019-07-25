@@ -21,17 +21,24 @@ class Home extends React.Component {
     this.loadBuilds();
   }
 
+  deleteBuild = (buildId) => {
+    buildData.deleteBuild(buildId)
+      .then(() => this.loadBuilds())
+      .catch(err => console.error(err));
+  }
+
   render() {
     const makeBuildCards = this.state.builds.map(build => (
       <BuildCard
         key={build.id}
         build={build}
+        deleteBuild={this.deleteBuild}
       />
     ));
 
     return (
       <div className="Home">
-        <div className="build-card-container">
+        <div className="card-deck col-12">
           {makeBuildCards}
         </div>
       </div>

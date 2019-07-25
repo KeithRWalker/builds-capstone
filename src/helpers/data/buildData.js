@@ -41,4 +41,11 @@ const getUserBuilds = uid => new Promise((resolve, reject) => {
 
 const addBuild = userBuild => Axios.post(`${baseUrl}/builds.json`, userBuild);
 
-export default { getBuilds, addBuild, getUserBuilds };
+const deleteBuild = buildId => Axios.delete(`${baseUrl}/builds/${buildId}.json`);
+
+export default {
+  getBuilds,
+  addBuild,
+  getUserBuilds,
+  deleteBuild,
+};
