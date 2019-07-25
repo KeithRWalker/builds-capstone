@@ -40,7 +40,6 @@ class AddBuild extends React.Component {
     const userBuild = { ...this.state.addBuild };
     userBuild.uid = firebase.auth().currentUser.uid;
     userBuild.dateCreated = currentTime;
-    console.error(userBuild);
     buildData.addBuild(userBuild)
       .then(() => this.props.history.push('/home'))
       .catch(err => console.error('error at formSubmit in AddBuild.js', err));
