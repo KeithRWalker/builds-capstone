@@ -1,6 +1,10 @@
-.build-card-container{
+.Home{
   display: flex;
-  flex-flow: column wrap;
+  flex-flow: row;
   align-content: center;
-  border: 5px green solid;
+  border: 1px solid red;
+}
+
+.card-deck{
+  margin-left: 20%;
 }
