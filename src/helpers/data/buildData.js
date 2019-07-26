@@ -21,31 +21,15 @@ const getBuilds = () => new Promise((resolve, reject) => {
     .catch(err => reject(err));
 });
 
-// const getUserBuilds = uid => new Promise((resolve, reject) => {
-//   Axios.get(`${baseUrl}/builds.json`)
-//     .then((resp) => {
-//       const buildData = resp.data;
-//       const userBuilds = [];
-//       if (buildData !== null) {
-//         Object.keys(buildData).forEach((build) => {
-//           if (buildData[build].uid === uid) {
-//             buildData[build].id = `${build}_local`;
-//             userBuilds.push(buildData[build]);
-//           }
-//         });
-//       }
-//       resolve(userBuilds);
-//     })
-//     .catch(err => reject(err));
-// });
-
 const addBuild = userBuild => Axios.post(`${baseUrl}/builds.json`, userBuild);
 
 const deleteBuild = buildId => Axios.delete(`${baseUrl}/builds/${buildId}.json`);
 
+const getSingleBuild = buildId => Axios.get(`${baseUrl}/builds/${buildId}.json`);
+
 export default {
   getBuilds,
   addBuild,
-  // getUserBuilds,
   deleteBuild,
+  getSingleBuild,
 };

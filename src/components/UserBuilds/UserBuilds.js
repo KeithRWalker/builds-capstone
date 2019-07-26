@@ -28,13 +28,6 @@ class UserBuilds extends React.Component {
       .catch(err => console.error('error in loadBuilds/Home.js', err));
   }
 
-  // loadBuilds = () => {
-  //   const userId = firebase.auth().currentUser.uid;
-  //   buildData.getUserBuilds(userId)
-  //     .then(builds => this.setState({ builds }))
-  //     .catch(err => console.error('error in loadBuilds/Home.js', err));
-  // }
-
   componentDidMount() {
     this.loadUserBuilds();
   }
