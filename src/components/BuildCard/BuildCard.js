@@ -10,6 +10,7 @@ import {
   ModalBody,
   ModalFooter,
 } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 import './BuildCard.scss';
 import buildShape from '../../helpers/prop-types/buildShape';
@@ -44,6 +45,7 @@ class BuildCard extends React.Component {
   render() {
     const { build } = this.props;
     const userId = firebase.auth().currentUser.uid;
+    const singleBuildUrl = `/build/${build.id}`;
     if (build.uid === userId) {
       return (
         <div className="BuildCard">
@@ -55,7 +57,7 @@ class BuildCard extends React.Component {
             </div>
             <div className="col-md-8">
               <div className="card-body">
-                <h5 className="card-title">{build.name}</h5>
+                <h5 className="card-title"><Link className="single-build-link" to={singleBuildUrl}>{build.name}</Link></h5>
                 <p className="card-text">{build.description}</p>
                 <p className="card-text"><small className="text-muted">{build.dateCreated}</small></p>
               </div>
@@ -91,9 +93,9 @@ class BuildCard extends React.Component {
             </div>
             <div className="col-md-8">
               <div className="card-body">
-                <h5 className="card-title">{build.name}</h5>
-                <p className="card-text">{build.description}</p>
-                <p className="card-text"><small className="text-muted">{build.dateCreated}</small></p>
+              <h5 className="card-title"><Link className="single-build-link" to={singleBuildUrl}>{build.name}</Link></h5>
+              <p className="card-text">{build.description}</p>
+              <p className="card-text"><small className="text-muted">{build.dateCreated}</small></p>
               </div>
             </div>
           </div>
