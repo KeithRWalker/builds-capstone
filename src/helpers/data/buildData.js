@@ -27,9 +27,12 @@ const deleteBuild = buildId => Axios.delete(`${baseUrl}/builds/${buildId}.json`)
 
 const getSingleBuild = buildId => Axios.get(`${baseUrl}/builds/${buildId}.json`);
 
+const updateBuild = (newBuildData, buildId) => Axios.put(`${baseUrl}/builds/${buildId}.json`, newBuildData);
+
 export default {
   getBuilds,
   addBuild,
   deleteBuild,
   getSingleBuild,
+  updateBuild,
 };
