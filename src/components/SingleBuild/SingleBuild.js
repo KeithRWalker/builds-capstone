@@ -66,9 +66,10 @@ class SingleBuild extends React.Component {
             <img src={build.imgUrl} className="jumbo-build-img" alt={altTag} />
             <p className="lead">{build.description}</p>
             <hr className="my-2" />
+            <Link to={homeLink}>Go back</Link>
             <p className="lead">
             <Button color="danger" onClick={this.toggle}>{this.props.buttonLabel}Delete</Button>
-            <Link className="btn btn-secondary" go={editBuildLink}>Edit</Link>
+            <Link className="btn btn-secondary" to={editBuildLink}>Edit</Link>
             </p>
           </Jumbotron>
 
@@ -96,6 +97,7 @@ class SingleBuild extends React.Component {
         <img src={build.imgUrl} className="jumbo-build-img" alt={altTag} />
         <p className="lead">{build.description}</p>
         <hr className="my-2" />
+        <Link to={homeLink}>Go back</Link>
       </Jumbotron>
     )
   }
