@@ -99,7 +99,7 @@ class SingleBuild extends React.Component {
         <hr className="my-2" />
         <Link to={homeLink}>Go back</Link>
       </Jumbotron>
-    )
+    );
   }
 }
 
