@@ -5,6 +5,8 @@ import 'firebase/auth';
 
 import {
   Button,
+  Jumbotron,
+  Container,
   Modal,
   ModalHeader,
   ModalBody,
@@ -46,25 +48,24 @@ class BuildCard extends React.Component {
     const { build } = this.props;
     const userId = firebase.auth().currentUser.uid;
     const singleBuildUrl = `/build/${build.id}`;
+    const editBuildUrl = `/edit/${build.id}`;
     if (build.uid === userId) {
       return (
         <div className="BuildCard">
 
-        <div className="card text-white mb-3 no-gutters-card">
-          <div className="row no-gutters">
-            <div className="col-md-4">
-              <img src={build.imgUrl} className="card-img build-img" alt="..." />
-            </div>
-            <div className="col-md-8">
-              <div className="card-body">
-                <h5 className="card-title"><Link className="single-build-link" to={singleBuildUrl}>{build.name}</Link></h5>
-                <p className="card-text">{build.description}</p>
-                <p className="card-text"><small className="text-muted">{build.dateCreated}</small></p>
+          <Jumbotron fluid className="build-jumbo-card">
+            <Container fluid>
+            <h5 className="card-title"><Link className="single-build-link" to={singleBuildUrl}>{build.name}</Link></h5>
+              <p className="lead">{build.dateCreated}</p>
+              <div className="build-img">
+                <img src={build.imgUrl} alt="featured" />
               </div>
-              <Button color="danger" onClick={this.toggle}>{this.props.buttonLabel}Delete</Button>
-            </div>
-          </div>
-        </div>
+              <div className="card-btns">
+                <Button color="danger" onClick={this.toggle}>{this.props.buttonLabel}Delete</Button>
+                <Link className="btn btn-secondary" to={editBuildUrl}>Edit</Link>
+              </div>
+            </Container>
+          </Jumbotron>
 
         <div className="Modal-d">
           <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
@@ -75,7 +76,7 @@ class BuildCard extends React.Component {
               This can't be undone!
             </ModalBody>
             <ModalFooter>
-            <Button color="secondary" onClick={this.toggle}>Take me back!</Button>
+              <Button color="secondary" onClick={this.toggle}>Take me back!</Button>
               <Button color="danger" onClick={this.deleteThis}>I am sure!</Button>
             </ModalFooter>
           </Modal>
@@ -86,20 +87,13 @@ class BuildCard extends React.Component {
     }
     return (
       <div className="BuildCard">
-        <div className="card text-white mb-3 no-gutters-card">
-          <div className="row no-gutters">
-            <div className="col-md-4">
-              <img src={build.imgUrl} className="card-img build-img" alt="..." />
-            </div>
-            <div className="col-md-8">
-              <div className="card-body">
-              <h5 className="card-title"><Link className="single-build-link" to={singleBuildUrl}>{build.name}</Link></h5>
-              <p className="card-text">{build.description}</p>
-              <p className="card-text"><small className="text-muted">{build.dateCreated}</small></p>
-              </div>
-            </div>
-          </div>
-        </div>
+        <Jumbotron fluid className="build-jumbo-card">
+          <Container fluid>
+            <h5 className="card-title"><Link className="single-build-link" to={singleBuildUrl}>{build.name}</Link></h5>
+              <p className="lead">{build.dateCreated}</p>
+              <img src={build.imgUrl} alt="featured" />
+          </Container>
+        </Jumbotron>
       </div>
     );
   }

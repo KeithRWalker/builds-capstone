@@ -38,7 +38,7 @@ class Home extends React.Component {
 
     return (
       <div className="Home">
-        <div className="card-deck col-12">
+        <div className="home-builds">
           {makeBuildCards}
         </div>
       </div>
