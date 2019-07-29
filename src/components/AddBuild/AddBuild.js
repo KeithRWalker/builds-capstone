@@ -13,7 +13,6 @@ const defaultBuild = {
   imgUrl: '',
   dateCreated: '',
   description: '',
-  isPublic: true,
   uid: '',
 };
 
