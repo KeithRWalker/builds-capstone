@@ -18,21 +18,17 @@ import './BuildCard.scss';
 import buildShape from '../../helpers/prop-types/buildShape';
 
 class BuildCard extends React.Component {
+  state = {
+    modal: false,
+    isDropOpen: false,
+  }
+
   static propTypes = {
     build: buildShape.buildCardShape,
     deleteBuild: PropTypes.func.isRequired,
   }
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      modal: false,
-    };
-
-    this.toggle = this.toggle.bind(this);
-  }
-
-  toggle() {
+  toggle = () => {
     this.setState(prevState => ({
       modal: !prevState.modal,
     }));
@@ -58,7 +54,7 @@ class BuildCard extends React.Component {
             <h5 className="card-title"><Link className="single-build-link" to={singleBuildUrl}>{build.name}</Link></h5>
               <p className="lead">{build.dateCreated}</p>
               <div className="build-img">
-                <img src={build.imgUrl} alt="featured" />
+                <img src={build.imgUrl} alt="featured" className="build-img-src" />
               </div>
               <div className="card-btns">
                 <Button color="danger" onClick={this.toggle}>{this.props.buttonLabel}Delete</Button>
@@ -91,7 +87,7 @@ class BuildCard extends React.Component {
           <Container fluid>
             <h5 className="card-title"><Link className="single-build-link" to={singleBuildUrl}>{build.name}</Link></h5>
               <p className="lead">{build.dateCreated}</p>
-              <img src={build.imgUrl} alt="featured" />
+              <img src={build.imgUrl} alt="featured" className="build-img-src" />
           </Container>
         </Jumbotron>
       </div>
