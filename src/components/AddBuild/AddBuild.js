@@ -21,17 +21,17 @@ class AddBuild extends React.Component {
     addBuild: defaultBuild,
   };
 
-  formFieldStringState = (name, e) => {
+  formStateUpdate = (name, e) => {
     const tempBuild = { ...this.state.addBuild };
     tempBuild[name] = e.target.value;
     this.setState({ addBuild: tempBuild });
   }
 
-  formNameChange = e => this.formFieldStringState('name', e);
+  nameUpdate = e => this.formStateUpdate('name', e);
 
-  formImgChange = e => this.formFieldStringState('imgUrl', e);
+  imgUpdate = e => this.formStateUpdate('imgUrl', e);
 
-  formDescriptionChange = e => this.formFieldStringState('description', e);
+  descriptionUpdate = e => this.formStateUpdate('description', e);
 
   formSubmit = (e) => {
     e.preventDefault();
@@ -60,7 +60,7 @@ class AddBuild extends React.Component {
               id="formName"
               placeholder="what's your creation's name?"
               value={addBuild.formName}
-              onChange={this.formNameChange}
+              onChange={this.nameUpdate}
             />
             </div>
         </div>
@@ -74,7 +74,7 @@ class AddBuild extends React.Component {
               id="formImg"
               placeholder="insert a url to a photo of your build!"
               value={addBuild.formImg}
-              onChange={this.formImgChange}
+              onChange={this.imgUpdate}
             />
             </div>
         </div>
@@ -82,13 +82,13 @@ class AddBuild extends React.Component {
         <div className="row-8">
           <label htmlFor="formDescription">Description</label>
           <div className="col">
-            <input
+            <textarea
               type="textarea"
               name="text"
               id="formDescription"
               placeholder="give us a short description of what you have created!"
               value={addBuild.formDescription}
-              onChange={this.formDescriptionChange}
+              onChange={this.descriptionUpdate}
               />
               </div>
         </div>
