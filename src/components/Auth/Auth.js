@@ -8,7 +8,9 @@ import {
 
 import FeaturedBuild from '../FeaturedBuild/FeaturedBuild';
 
-import featuredBuildData from '../../helpers/data/featuredBuildData';
+import buildData from '../../helpers/data/buildData';
+
+// import featuredBuildData from '../../helpers/data/featuredBuildData';
 
 import './Auth.scss';
 
@@ -18,7 +20,7 @@ class Auth extends React.Component {
   }
 
   loadFeaturedBuilds = () => {
-    featuredBuildData.getFeaturedBuilds()
+    buildData.getFeaturedBuilds()
       .then(featuredBuilds => this.setState({ featuredBuilds }))
       .catch(err => console.error('error in Auth.js, loadFeaturedBuilds()', err));
   }
