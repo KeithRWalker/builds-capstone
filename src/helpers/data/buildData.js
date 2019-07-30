@@ -19,6 +19,27 @@ const getBuilds = () => new Promise((resolve, reject) => {
     .catch(err => reject(err));
 });
 
+const getFeaturedBuilds = () => new Promise((resolve, reject) => {
+  axios.get(`${baseUrl}/builds.json`)
+    .then((resp) => {
+      const featuredBuildData = resp.data;
+      const featuredBuilds = [];
+      // const featuredFilter = 'build';
+      // (featuredBuild.includes(featuredFilter) === true)
+      if (featuredBuildData !== null) {
+        Object.keys(featuredBuildData).forEach((featuredBuild) => {
+          const currentBuild = featuredBuildData[featuredBuild];
+          if (currentBuild.isFeatured === true) {
+            currentBuild.id = featuredBuild;
+            featuredBuilds.push(currentBuild);
+          }
+        });
+      }
+      resolve(featuredBuilds);
+    })
+    .catch(err => reject(err));
+});
+
 const addBuild = userBuild => axios.post(`${baseUrl}/builds.json`, userBuild);
 
 const deleteBuild = buildId => axios.delete(`${baseUrl}/builds/${buildId}.json`);
@@ -33,4 +54,5 @@ export default {
   deleteBuild,
   getSingleBuild,
   updateBuild,
+  getFeaturedBuilds,
 };

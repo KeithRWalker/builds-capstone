@@ -6,7 +6,7 @@ const buildCardShape = PropTypes.shape({
   imgUrl: PropTypes.string.isRequired,
   dateCreated: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  isPublic: PropTypes.bool.isRequired,
+  isFeatured: PropTypes.bool,
   uid: PropTypes.string.isRequired,
 });
 
