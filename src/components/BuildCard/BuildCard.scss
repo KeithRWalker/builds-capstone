@@ -3,14 +3,12 @@
   border-radius: 1em;
   padding: 0em;
   border: .25em inset rgba(128, 128, 128, 0.486);
-  background-color: rgb(44, 216, 101);
+  background-color: rgb(139, 30, 30);
+  margin: 1em;
 }
 
 .jumbotron{
   background-color: rgb(139, 30, 30);
-  // display: flex;
-  align-content: center;
-  border: 2px inset rgba(128, 128, 128, 0.589);
 }
 
 .build-img{
@@ -18,10 +16,9 @@
   min-height: 500px;
   padding: -.5px;
   display: inline-block;
-  // height: 500px;
-  // width: 500px;
+  height: 500px;
+  width: 500px;
   margin: 0 auto;
-  border: 5px outset green;
   border-radius: 3em;
 }
 

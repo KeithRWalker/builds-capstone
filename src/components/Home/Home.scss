@@ -2,6 +2,8 @@
   display: block;
 }
 
-.card-deck{
-  // margin-left: 20%;
+.home-builds{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
 }

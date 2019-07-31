@@ -14,13 +14,13 @@ import {
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
-import './BuildCard.scss';
 import buildShape from '../../helpers/prop-types/buildShape';
+
+import './BuildCard.scss';
 
 class BuildCard extends React.Component {
   state = {
     modal: false,
-    isDropOpen: false,
   }
 
   static propTypes = {
@@ -57,7 +57,7 @@ class BuildCard extends React.Component {
                 <img src={build.imgUrl} alt="featured" className="build-img-src" />
               </div>
               <div className="card-btns">
-                <Button color="danger" onClick={this.toggle}>{this.props.buttonLabel}Delete</Button>
+                <Button color="danger" onClick={this.toggle}>Delete</Button>
                 <Link className="btn btn-secondary" to={editBuildUrl}>Edit</Link>
               </div>
             </Container>
@@ -77,6 +77,7 @@ class BuildCard extends React.Component {
             </ModalFooter>
           </Modal>
         </div>
+
 
       </div>
       );

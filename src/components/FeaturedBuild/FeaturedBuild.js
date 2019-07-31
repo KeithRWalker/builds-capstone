@@ -16,7 +16,7 @@ class FeaturedBuild extends React.Component {
           <Container fluid>
             <h1 className="display-4">{feature.name}</h1>
             <p className="lead">{feature.dateCreated}</p>
-            <img src={feature.imgUrl} alt="featured" />
+            <img src={feature.imgUrl} alt="featured" className="build-img"/>
             <p>{feature.description}</p>
           </Container>
         </Jumbotron>
