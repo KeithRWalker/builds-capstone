@@ -51,22 +51,19 @@ class Auth extends React.Component {
           <Jumbotron fluid>
             <Container fluid>
               <h1 className="display-1">Brick Post</h1>
-              <p className="lead">Welcome to Brickpost! A place to share your lego creations!</p>
-              {signInBtn}
-            </Container>
-          </Jumbotron>
-        </div>
-
-        <div className="featured-top">
-          <Jumbotron fluid>
-            <Container fluid>
+              <p className="lead">
+                Welcome to Brickpost, A place to share your lego creations!
+              </p>
+              <hr className="my-2" />
               <h1 className="display-4">Check out these creations!</h1>
-              <p className="lead">Made from our users!</p>
             </Container>
+            {signInBtn}
           </Jumbotron>
         </div>
 
-        {makeFeaturedBuilds}
+        <div className="featured-con">
+          {makeFeaturedBuilds}
+        </div>
 
       </div>
     );

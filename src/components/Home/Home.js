@@ -1,4 +1,9 @@
 import React from 'react';
+import {
+  Jumbotron,
+  Container,
+} from 'reactstrap';
+
 
 import BuildCard from '../BuildCard/BuildCard';
 
@@ -38,7 +43,16 @@ class Home extends React.Component {
 
     return (
       <div className="Home">
-        <div className="home-builds">
+
+        <div>
+          <Jumbotron fluid>
+            <Container fluid>
+              <h1 className="display-3">Home</h1>
+            </Container>
+          </Jumbotron>
+        </div>
+
+        <div className="build-con">
           {makeBuildCards}
         </div>
       </div>

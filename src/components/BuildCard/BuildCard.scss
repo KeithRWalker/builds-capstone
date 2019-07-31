@@ -1,30 +1,57 @@
 .BuildCard{
   object-fit: contain;
-}
-
-.card{
   border-radius: 1em;
   padding: 0em;
-  border: .25em inset rgba(128, 128, 128, 0.486);
-  background-color: rgb(44, 216, 101);
+  margin: 1em;
+  border-radius: 3em;
 }
 
-.build-img{
-  max-width: 100%;
-  margin: 0;
-  padding: 0;
-  border-radius: 1em 1em 1em 1em;
-  border: 0;
+.build-container{
+  position: relative; 
+  max-width: 800px; /* Maximum width */
+  margin: 0 auto; /* Center it */
+}
+
+.build-container .build-content{
+  position: absolute; /* Position the background text */
+  bottom: 0; /* At the bottom. Use top:0 to append it to the top */
+  background: rgb(0, 0, 0); /* Fallback color */
+  background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+  color: #f1f1f1; /* Grey text */
+  width: 250px; /* Full width */
+  padding: 20px; /* Some padding */
+  text-align: left;
+}
+
+.build-content{
+  position: absolute; 
+  bottom: 0; 
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.5); /* Black see-through */
+  color: #f1f1f1; 
+  width: 100%;
+  transition: .5s ease;
+  opacity:0;
+  color: white;
+  font-size: 20px;
+  padding: 20px;
+  text-align: center;
+}
+
+.build-container:hover .build-content{
+  opacity: 1;
+}
+
+.build-img-src{
+  height: 250px;
+  width: 250px;
+  object-fit: cover;
+  border: 1px outset rgba(114, 103, 103, 0.767);
 }
 
 .card-btns{
   margin-top: .5em;
   position: relative;
-}
-
-.modal-content{
-  background-color: rgb(98, 94, 94);
-  color: aliceblue;
 }
 
 .build-jumbo-card{
