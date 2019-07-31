@@ -47,13 +47,13 @@ class AddBuild extends React.Component {
   render() {
     const { addBuild } = this.state;
     return (
-      <div className="AddBuild col-6">
+      <div className="AddBuild">
         <h1>Add your own Build!</h1>
-        <form onSubmit={this.formSubmit}>
+        <form onSubmit={this.formSubmit} className="add-form">
 
-        <div className="row-8">
+        <div className="name">
           <label htmlFor="formName">Name:</label>
-          <div className="col">
+          <div className="name-form">
             <input
               type="text"
               name="text"
@@ -65,9 +65,9 @@ class AddBuild extends React.Component {
             </div>
         </div>
 
-        <div className="row-8">
+        <div className="img">
           <label htmlFor="formImg">Image:</label>
-          <div className="col">
+          <div className="img-form">
             <input
               type="url"
               name="url"
@@ -79,12 +79,13 @@ class AddBuild extends React.Component {
             </div>
         </div>
 
-        <div className="row-8">
+        <div className="descript">
           <label htmlFor="formDescription">Description</label>
-          <div className="col">
+          <div className="descript">
             <textarea
               type="textarea"
               name="text"
+              className="text-area"
               id="formDescription"
               placeholder="give us a short description of what you have created!"
               value={addBuild.formDescription}

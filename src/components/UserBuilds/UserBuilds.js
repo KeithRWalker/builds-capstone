@@ -1,4 +1,8 @@
 import React from 'react';
+import {
+  Jumbotron,
+  Container,
+} from 'reactstrap';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 
@@ -50,9 +54,19 @@ class UserBuilds extends React.Component {
 
     return (
       <div className="UserBuilds">
+
+        <div className="page-header">
+          <Jumbotron fluid>
+            <Container fluid>
+              <h1 className="display-3">Your Builds</h1>
+            </Container>
+          </Jumbotron>
+        </div>
+
         <div className="build-con">
           {makeBuildCards}
         </div>
+
       </div>
     );
   }

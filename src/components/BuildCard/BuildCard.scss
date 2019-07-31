@@ -23,9 +23,30 @@
   text-align: left;
 }
 
+.build-content{
+  position: absolute; 
+  bottom: 0; 
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.5); /* Black see-through */
+  color: #f1f1f1; 
+  width: 100%;
+  transition: .5s ease;
+  opacity:0;
+  color: white;
+  font-size: 20px;
+  padding: 20px;
+  text-align: center;
+}
+
+.build-container:hover .build-content{
+  opacity: 1;
+}
+
 .build-img-src{
   height: 250px;
   width: 250px;
+  object-fit: cover;
+  border: 1px outset rgba(114, 103, 103, 0.767);
 }
 
 .card-btns{

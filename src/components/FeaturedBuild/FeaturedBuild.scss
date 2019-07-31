@@ -1,11 +1,50 @@
-// .FeaturedBuild{
-//   min-width: 500px;
-//   min-height: 500px;
-//   padding: -.5px;
-//   display: inline-block;
-//   height: 500px;
-//   width: 500px;
-//   margin: 0 auto;
-//   border: 5px outset green;
-//   border-radius: 3em;
-// }
+.FeaturedBuild{
+  object-fit: contain;
+  border-radius: 1em;
+  padding: 0em;
+  margin: 1em;
+  border-radius: 3em;
+}
+
+.featured-container{
+  position: relative; 
+  max-width: 500px; /* Maximum width */
+  margin: 0 auto; /* Center it */
+}
+
+.featured-container .feature-content{
+  position: absolute; /* Position the background text */
+  bottom: 0; /* At the bottom. Use top:0 to append it to the top */
+  background: rgb(0, 0, 0); /* Fallback color */
+  background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+  color: #f1f1f1; /* Grey text */
+  width: 250px; /* Full width */
+  padding: 20px; /* Some padding */
+  text-align: left;
+}
+
+.featured-content{
+  position: absolute; 
+  bottom: 0; 
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.5); /* Black see-through */
+  color: #f1f1f1; 
+  width: 100%;
+  transition: .5s ease;
+  opacity:0;
+  color: white;
+  font-size: 20px;
+  padding: 20px;
+  text-align: center;
+}
+
+.featured-img-src{
+  height: 500px;
+  width: 500px;
+  object-fit: cover;
+  border: 1px outset rgba(114, 103, 103, 0.767);
+}
+
+.featured-container:hover .featured-content{
+  opacity: 1;
+}
