@@ -50,7 +50,7 @@ class UserBuilds extends React.Component {
 
     return (
       <div className="UserBuilds">
-        <div className="build-card-container">
+        <div className="build-con">
           {makeBuildCards}
         </div>
       </div>

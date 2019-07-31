@@ -52,7 +52,7 @@ class Home extends React.Component {
           </Jumbotron>
         </div>
 
-        <div className="home-builds">
+        <div className="build-con">
           {makeBuildCards}
         </div>
       </div>

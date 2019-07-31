@@ -2,40 +2,35 @@
   object-fit: contain;
   border-radius: 1em;
   padding: 0em;
-  border: .25em inset rgba(128, 128, 128, 0.486);
-  background-color: rgb(139, 30, 30);
   margin: 1em;
-}
-
-.jumbotron{
-  background-color: rgb(139, 30, 30);
-}
-
-.build-img{
-  min-width: 500px;
-  min-height: 500px;
-  padding: -.5px;
-  display: inline-block;
-  height: 500px;
-  width: 500px;
-  margin: 0 auto;
   border-radius: 3em;
+}
+
+.build-container{
+  position: relative; 
+  max-width: 800px; /* Maximum width */
+  margin: 0 auto; /* Center it */
+}
+
+.build-container .build-content{
+  position: absolute; /* Position the background text */
+  bottom: 0; /* At the bottom. Use top:0 to append it to the top */
+  background: rgb(0, 0, 0); /* Fallback color */
+  background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+  color: #f1f1f1; /* Grey text */
+  width: 250px; /* Full width */
+  padding: 20px; /* Some padding */
+  text-align: left;
 }
 
 .build-img-src{
-  height: 500px;
-  width: 500px;
-  border-radius: 3em;
+  height: 250px;
+  width: 250px;
 }
 
 .card-btns{
   margin-top: .5em;
   position: relative;
-}
-
-.modal-content{
-  background-color: rgb(98, 94, 94);
-  color: aliceblue;
 }
 
 .build-jumbo-card{
