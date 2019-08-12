@@ -56,7 +56,7 @@ class UserBuilds extends React.Component {
       <div className="UserBuilds">
 
         <div className="page-header">
-          <Jumbotron fluid>
+          <Jumbotron fluid className="jumbo">
             <Container fluid>
               <h1 className="display-3">Your Builds</h1>
             </Container>

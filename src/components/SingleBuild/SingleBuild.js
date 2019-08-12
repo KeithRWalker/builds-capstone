@@ -13,6 +13,8 @@ import { Link } from 'react-router-dom';
 
 import buildData from '../../helpers/data/buildData';
 
+import './SingleBuild.scss';
+
 class SingleBuild extends React.Component {
     state = {
       modal: false,
@@ -54,17 +56,16 @@ class SingleBuild extends React.Component {
     if (userId === buildUid) {
       return (
         <div className="SingleBuild">
-        <Link to={homeLink}>Go back</Link>
-          <Jumbotron>
+          <Jumbotron className="detail-jumbo">
             <h1 className="display-3">{build.name}</h1>
             <p><small className="text-muted"> Created on {build.dateCreated}</small></p>
-            <img src={build.imgUrl} className="jumbo-build-img" alt={altTag} />
+            <img src={build.imgUrl} alt={altTag} />
             <p className="lead">{build.description}</p>
             <hr className="my-2" />
-            <Link to={homeLink}>Go back</Link>
             <p className="lead">
             <Button color="danger" onClick={this.toggle}>Delete</Button>
-            <Link className="btn btn-secondary" to={editBuildLink}>Edit</Link>
+            <Link className="btn btn-warning" to={editBuildLink}>Edit</Link>
+            <Link to={homeLink} className="btn btn-primary">Go back</Link>
             </p>
           </Jumbotron>
 
@@ -77,7 +78,7 @@ class SingleBuild extends React.Component {
                 This can't be undone!
               </ModalBody>
               <ModalFooter>
-                <Button color="secondary" onClick={this.toggle}>Take me back!</Button>
+                <Button color="warning" onClick={this.toggle}>Take me back!</Button>
                 <Button color="danger" onClick={this.deleteThis}>I am sure!</Button>
               </ModalFooter>
             </Modal>
@@ -86,13 +87,12 @@ class SingleBuild extends React.Component {
       );
     }
     return (
-      <Jumbotron>
+      <Jumbotron className="detail-jumbo">
         <h1 className="display-3">{build.name}</h1>
         <p><small className="text-muted"> Created on {build.dateCreated}</small></p>
-        <img src={build.imgUrl} className="jumbo-build-img" alt={altTag} />
+        <img src={build.imgUrl} alt={altTag} />
         <p className="lead">{build.description}</p>
-        <hr className="my-2" />
-        <Link to={homeLink}>Go back</Link>
+        <Link to={homeLink} className="btn btn-primary">Go back</Link>
       </Jumbotron>
     );
   }

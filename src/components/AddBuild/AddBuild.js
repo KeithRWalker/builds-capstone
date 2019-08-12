@@ -2,7 +2,11 @@ import React from 'react';
 import firebase from 'firebase/app';
 import moment from 'moment';
 import 'firebase/auth';
-import { Button } from 'reactstrap';
+import {
+  Button,
+  Jumbotron,
+  Container,
+} from 'reactstrap';
 
 import buildData from '../../helpers/data/buildData';
 
@@ -48,7 +52,15 @@ class AddBuild extends React.Component {
     const { addBuild } = this.state;
     return (
       <div className="AddBuild">
-        <h1>Add your own Build!</h1>
+        <div className="page-header">
+          <Jumbotron fluid className="jumbo">
+            <Container fluid>
+              <h1 className="display-3">Add a Build!</h1>
+            </Container>
+          </Jumbotron>
+        </div>
+
+        <div className="form-con">
         <form onSubmit={this.formSubmit} className="add-form">
 
         <div className="name">
@@ -57,6 +69,7 @@ class AddBuild extends React.Component {
             <input
               type="text"
               name="text"
+              className="input-area"
               id="formName"
               placeholder="what's your creation's name?"
               value={addBuild.formName}
@@ -72,6 +85,7 @@ class AddBuild extends React.Component {
             <input
               type="url"
               name="url"
+              className="input-area"
               id="formImg"
               placeholder="insert a url to a photo of your build!"
               value={addBuild.formImg}
@@ -87,7 +101,7 @@ class AddBuild extends React.Component {
             <textarea
               type="textarea"
               name="text"
-              className="text-area"
+              className="input-area"
               id="formDescription"
               placeholder="give us a short description of what you have created!"
               value={addBuild.formDescription}
@@ -102,6 +116,7 @@ class AddBuild extends React.Component {
         </div>
 
         </form>
+        </div>
       </div>
     );
   }

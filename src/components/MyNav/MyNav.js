@@ -7,6 +7,10 @@ import {
   Nav,
   NavItem,
   NavLink,
+  Dropdown,
+  DropdownItem,
+  DropdownToggle,
+  DropdownMenu,
 } from 'reactstrap';
 import PropTypes from 'prop-types';
 
@@ -16,6 +20,10 @@ import 'firebase/auth';
 import './MyNav.scss';
 
 class MyNav extends React.Component {
+  state = {
+    dropdownOpen: false,
+  }
+
   static propTypes = {
     authed: PropTypes.bool.isRequired,
   }
@@ -30,6 +38,10 @@ class MyNav extends React.Component {
     const provider = new firebase.auth.GoogleAuthProvider();
     firebase.auth().signInWithPopup(provider);
   };
+
+  toggle = () => {
+    this.setState({ dropdownOpen: !this.state.dropdownOpen });
+  }
 
   render() {
     const { authed } = this.props;
@@ -47,22 +59,25 @@ class MyNav extends React.Component {
             <NavItem>
               <NavLink tag={RRNavLink} to='/add'>Add Build</NavLink>
             </NavItem>
-            <NavItem>
-              <NavLink tag={RRNavLink} to='/home'>{userName}</NavLink>
-            </NavItem>
-            <NavItem>
-              <Button color="danger" onClick={this.logMeOut}>Logout</Button>
-            </NavItem>
+            <Dropdown nav isOpen={this.state.dropdownOpen} toggle={this.toggle} direction="down">
+            <DropdownToggle nav caret>
+              {userName}
+            </DropdownToggle>
+            <DropdownMenu className="dd-con btn">
+              <DropdownItem className="dd-item" onClick={this.logMeOut}>Logout</DropdownItem>
+            </DropdownMenu>
+          </Dropdown>
+
           </Nav>
         );
       }
-      return <Nav className="ml-auto" navbar> <Button color='success' onClick={this.loginClickEvent}>Login</Button></Nav>;
+      return <Nav className="ml-auto" navbar> <Button className="btn btn-success sign-in-btn" onClick={this.loginClickEvent}>Login</Button></Nav>;
     };
 
     return (
       <div className="MyNav">
-        <Navbar color="dark" dark expand="md">
-          <NavbarBrand href="/">Builds</NavbarBrand>
+        <Navbar dark expand="md" className="my-nav">
+          <NavbarBrand href="/">Buildz</NavbarBrand>
             {buildNavbar()}
         </Navbar>
       </div>

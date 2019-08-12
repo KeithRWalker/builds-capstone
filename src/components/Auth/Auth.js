@@ -36,7 +36,7 @@ class Auth extends React.Component {
   };
 
   render() {
-    const signInBtn = <button className="btn btn-secondary" onClick={this.loginClickEvent}>Sign Up Today!</button>;
+    const signInBtn = <button className="btn btn-success sign-in-btn" onClick={this.loginClickEvent}>Sign Up Today!</button>;
     const makeFeaturedBuilds = this.state.featuredBuilds.map(feature => (
       <FeaturedBuild
         key={feature.id}
@@ -48,11 +48,11 @@ class Auth extends React.Component {
       <div className="Auth">
 
         <div className="banner-top">
-          <Jumbotron fluid>
+          <Jumbotron className="jumbo" fluid>
             <Container fluid>
-              <h1 className="display-1">Brick Post</h1>
+              <h1 className="display-1">Buildz</h1>
               <p className="lead">
-                Welcome to Brickpost, A place to share your lego creations!
+                Welcome to Buildz, A place to share your lego creations!
               </p>
               <hr className="my-2" />
               <h1 className="display-4">Check out these creations!</h1>

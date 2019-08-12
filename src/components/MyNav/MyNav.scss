@@ -1,0 +1,18 @@
+.my-nav{
+  background-color: rgb(228, 0, 4);
+  max-width: 100%;
+  border: 5px outset rgba(0, 0, 0, 0.39);
+  z-index: 1;
+}
+
+.dd-con{
+  margin-right: 100px;
+}
+
+.dd-con:hover {
+  background-color: red;
+}
+
+.dd-item:hover {
+  background-color: red;
+}

@@ -77,7 +77,7 @@ class Home extends React.Component {
       <div className="Home">
 
         <div>
-          <Jumbotron fluid>
+          <Jumbotron className="jumbo" fluid>
             <Container fluid>
               <h1 className="display-3">Home</h1>
             </Container>
