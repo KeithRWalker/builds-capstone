@@ -8,14 +8,12 @@ import {
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
+import userData from '../../helpers/data/userData';
 import buildShape from '../../helpers/prop-types/buildShape';
 
 import './BuildCard.scss';
 
 class BuildCard extends React.Component {
-  state = {
-    modal: false,
-  }
 
   static propTypes = {
     build: buildShape.buildCardShape,
@@ -34,11 +32,16 @@ class BuildCard extends React.Component {
     deleteBuild(build.id);
   }
 
+  assignUser = (uid) => {
+    userData.getUserName(uid)
+      .then(resp => resp)
+      .catch(err => console.error(err));
+  }
+
   render() {
     const { build } = this.props;
     const userId = firebase.auth().currentUser.uid;
     const singleBuildUrl = `/build/${build.id}`;
-    // const editBuildUrl = `/edit/${build.id}`;
     if (build.uid === userId) {
       return (
         <div className="BuildCard">
@@ -67,4 +70,3 @@ class BuildCard extends React.Component {
 }
 
 export default BuildCard;
-

@@ -61,6 +61,7 @@ class AddBuild extends React.Component {
               placeholder="what's your creation's name?"
               value={addBuild.formName}
               onChange={this.nameUpdate}
+              required
             />
             </div>
         </div>
@@ -75,6 +76,7 @@ class AddBuild extends React.Component {
               placeholder="insert a url to a photo of your build!"
               value={addBuild.formImg}
               onChange={this.imgUpdate}
+              required
             />
             </div>
         </div>
