@@ -33,6 +33,7 @@ class MyNav extends React.Component {
 
   render() {
     const { authed } = this.props;
+    const { userName } = this.props;
     const buildNavbar = () => {
       if (authed) {
         return (
@@ -45,6 +46,9 @@ class MyNav extends React.Component {
             </NavItem>
             <NavItem>
               <NavLink tag={RRNavLink} to='/add'>Add Build</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink tag={RRNavLink} to='/home'>{userName}</NavLink>
             </NavItem>
             <NavItem>
               <Button color="danger" onClick={this.logMeOut}>Logout</Button>

@@ -14,32 +14,27 @@ import { Link } from 'react-router-dom';
 import buildData from '../../helpers/data/buildData';
 
 class SingleBuild extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+    state = {
       modal: false,
       build: {},
     };
 
-    this.toggle = this.toggle.bind(this);
-  }
+    componentDidMount() {
+      const buildId = this.props.match.params.id;
+      buildData.getSingleBuild(buildId)
+        .then((buildPromise) => {
+          const bpd = buildPromise.data;
+          bpd.id = buildId;
+          this.setState({ build: bpd });
+        })
+        .catch(err => console.error('error in SingleBuild', err));
+    }
 
-  toggle() {
-    this.setState(prevState => ({
-      modal: !prevState.modal,
-    }));
-  }
-
-  componentDidMount() {
-    const buildId = this.props.match.params.id;
-    buildData.getSingleBuild(buildId)
-      .then((buildPromise) => {
-        const bpd = buildPromise.data;
-        bpd.id = buildId;
-        this.setState({ build: bpd });
-      })
-      .catch(err => console.error('error in SingleBuild', err));
-  }
+    toggle = () => {
+      this.setState(prevState => ({
+        modal: !prevState.modal,
+      }));
+    }
 
   deleteThis = (e) => {
     e.preventDefault();
@@ -68,25 +63,25 @@ class SingleBuild extends React.Component {
             <hr className="my-2" />
             <Link to={homeLink}>Go back</Link>
             <p className="lead">
-            <Button color="danger" onClick={this.toggle}>{this.props.buttonLabel}Delete</Button>
+            <Button color="danger" onClick={this.toggle}>Delete</Button>
             <Link className="btn btn-secondary" to={editBuildLink}>Edit</Link>
             </p>
           </Jumbotron>
 
           <div className="Modal-d">
-          <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-            <ModalHeader toggle={this.toggle}>Delete Build?</ModalHeader>
-            <ModalBody>
-              Are you sure you want to delete your build?
-              <br />
-              This can't be undone!
-            </ModalBody>
-            <ModalFooter>
-            <Button color="secondary" onClick={this.toggle}>Take me back!</Button>
-              <Button color="danger" onClick={this.deleteThis}>I am sure!</Button>
-            </ModalFooter>
-          </Modal>
-        </div>
+            <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
+              <ModalHeader toggle={this.toggle}>Delete Build?</ModalHeader>
+              <ModalBody>
+                Are you sure you want to delete your build?
+                <br />
+                This can't be undone!
+              </ModalBody>
+              <ModalFooter>
+                <Button color="secondary" onClick={this.toggle}>Take me back!</Button>
+                <Button color="danger" onClick={this.deleteThis}>I am sure!</Button>
+              </ModalFooter>
+            </Modal>
+          </div>
         </div>
       );
     }
