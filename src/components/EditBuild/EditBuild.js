@@ -1,5 +1,10 @@
 import React from 'react';
-import { Button } from 'reactstrap';
+import {
+  Button,
+  Jumbotron,
+  Container,
+} from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 import buildData from '../../helpers/data/buildData';
 
@@ -52,61 +57,78 @@ class EditBuild extends React.Component {
 
   render() {
     const { buildState } = this.state;
+    const buildId = this.props.match.params.id;
+    const buildUrl = `/build/${buildId}`;
 
     return (
       <div className="EditBuild">
-        <h2>Editing Build</h2>
 
-        <form onSubmit={this.editFormSubmit}>
+      <div className="page-header">
+        <Jumbotron fluid className="jumbo">
+          <Container fluid>
+            <h1 className="display-3">Editing {buildState.name}</h1>
+          </Container>
+        </Jumbotron>
+      </div>
 
-        <div className="row-8 edit-name">
-          <label htmlFor="editFormName">Name:</label>
-          <div className="col">
-            <input
-              type="text"
-              name="text"
-              id="editFormName"
-              placeholder={buildState.name}
-              value={buildState.editFormName}
-              onChange={this.nameUpdate}
-            />
-            </div>
-        </div>
+        <div className="form-con">
+          <form onSubmit={this.editFormSubmit} className="edit-form">
 
-        <div className="row-8 edit-img">
-          <label htmlFor="editFormImg">Image:</label>
-          <div className="col">
-            <input
-              type="url"
-              name="url"
-              id="editFormImg"
-              placeholder={buildState.img}
-              value={buildState.editFormImg}
-              onChange={this.imgUpdate}
-            />
-            </div>
-        </div>
-
-        <div className="row-8 edit-description">
-          <label htmlFor="editFormDescription">Description</label>
-          <div className="col">
-            <textarea
-              type="text-area"
-              name="text"
-              id="editFormDescription"
-              placeholder={buildState.description}
-              value={buildState.editFormDescription}
-              onChange={this.descriptionUpdate}
-            />
+          <div className="row-8 edit-name">
+            <label htmlFor="editFormName">Name:</label>
+            <div className="col">
+              <input
+                type="text"
+                name="text"
+                className="input-area"
+                id="editFormName"
+                placeholder={buildState.name}
+                value={buildState.editFormName}
+                onChange={this.nameUpdate}
+                required
+              />
               </div>
-        </div>
-        <div>
-          <div>
-            <Button color="success" type="submit">Submit</Button>
           </div>
-        </div>
 
-        </form>
+          <div className="row-8 edit-img">
+            <label htmlFor="editFormImg">Image:</label>
+            <div className="col">
+              <input
+                type="url"
+                name="url"
+                className="input-area"
+                id="editFormImg"
+                placeholder={buildState.img}
+                value={buildState.editFormImg}
+                onChange={this.imgUpdate}
+                required
+              />
+              </div>
+          </div>
+
+          <div className="row-8 edit-description">
+            <label htmlFor="editFormDescription">Description</label>
+            <div className="col">
+              <textarea
+                type="text-area"
+                name="text"
+                className="input-area"
+                id="editFormDescription"
+                placeholder={buildState.description}
+                value={buildState.editFormDescription}
+                onChange={this.descriptionUpdate}
+              />
+                </div>
+          </div>
+          <div>
+            <div>
+            <Link to={buildUrl} className="btn btn-warning">Cancel</Link>
+              <Button color="success" type="submit">Submit</Button>
+            </div>
+          </div>
+
+          </form>
+        </div>
       </div>
     );
   }
