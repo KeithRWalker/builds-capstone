@@ -15,15 +15,17 @@ Here is a live [demo](https://build-capstone.firebaseapp.com)
 ## Site
 
 ##### Landing Page
-
+![Landing Page](https://raw.githubusercontent.com/KeithRWalker/builds-capstone/master/db/Screenshots/Landing_Page.png)
 
 ##### Home Page
-
+![Home Page](https://raw.githubusercontent.com/KeithRWalker/builds-capstone/master/db/Screenshots/Home.png)
 
 ##### Your Builds
-
+![Your Builds](https://raw.githubusercontent.com/KeithRWalker/builds-capstone/master/db/Screenshots/Your_Builds.png)
 
 ##### Build Details
+![Your Build](https://raw.githubusercontent.com/KeithRWalker/builds-capstone/master/db/Screenshots/Your_Build_Detail.png)
+![Others Build](https://raw.githubusercontent.com/KeithRWalker/builds-capstone/master/db/Screenshots/Other_Build_Detail.png)
 
 ## Built With
 * [React.js](https://reactjs.org/)
